@@ -1,1 +1,1 @@
-# Repository made for the english thesaurus implementation.
+# Repository made for the english thesaurus implementation using the python language.
