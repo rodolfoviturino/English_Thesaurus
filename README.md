@@ -1,1 +1,1 @@
-# English_Thesaurus
+# Repository made for the english thesaurus implementation.
