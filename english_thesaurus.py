@@ -5,7 +5,7 @@ from difflib import SequenceMatcher, get_close_matches
 
 
 def translate(word: str) -> Union[list, None]:
-    """Gets a word returns its meaning base on a json dictionary.
+    """Gets a word returns its meaning based on a json dictionary.
 
     Parameters
     ----------
@@ -30,13 +30,13 @@ def translate(word: str) -> Union[list, None]:
         return
 
 
-def print_noun_and_verb(tranlated_word: list) -> None:
+def print_noun_and_verb(translated_word: list) -> None:
     """Gets a translated word and print its 'noun' and, if also available, 
-    the 'verb'.
+    its 'verb'.
 
     Parameters
     ----------
-    tranlated_word : list
+    translated_word : list
         the list contaning the noun and the verb for a translated word.
 
     Returns
@@ -46,12 +46,12 @@ def print_noun_and_verb(tranlated_word: list) -> None:
         is found in the json dictionary.
     """
     print('')
-    if len(tranlated_word) == 1:
-        noun = (tranlated_word)[0]
+    if len(translated_word) == 1:
+        noun = (translated_word)[0]
         print(f'Noun.\n{noun}\n')
     else:
-        noun = (tranlated_word)[0]
-        verb = tranlated_word[1]
+        noun = (translated_word)[0]
+        verb = translated_word[1]
         print(f'Noun.\n{noun}\n')
         print(f'Verb.\n{verb}\n')
     return
@@ -73,8 +73,8 @@ while True:
         inputed_word = inputed_word
         break
 
-tranlated_word = translate(inputed_word)
-if tranlated_word is None:
+translated_word = translate(inputed_word)
+if translated_word is None:
     print('Sorry, the typed word does not exist in our dictionary.')
     # The cutoff is a score threshold value of similarity between the typed word and the similar one.
     # 'n' is the number of elements that the function 'get_close_matches' will return in a list.
@@ -92,11 +92,11 @@ if tranlated_word is None:
                 break
         if close_match_user_response.title().replace(' ', '') == 'Yes':
             inputed_word = close_match_user_response
-            tranlated_word = translate(close_matches)
-            print_noun_and_verb(tranlated_word)
+            translated_word = translate(close_matches)
+            print_noun_and_verb(translated_word)
         else:
             print('Please, check it again.\n')
     else:
         print('Please, check the word again.\n')
 else:
-    print_noun_and_verb(tranlated_word)
+    print_noun_and_verb(translated_word)
